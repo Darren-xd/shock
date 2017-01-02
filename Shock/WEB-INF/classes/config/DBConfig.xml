@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<AtWork>
+		<!--
+			1-使用J2EE容器数据源; 2-使用本框架自带数据源; 3-使用调试数据源
+		-->
+		<item name="DATASOURCE_USE_FLAG" value="2" />
+		<!--
+			框架序列号实现类型 1-通用实现；2-Oracle实现；3-DB2实现；4-POSTGRESQL实现；10-其它
+		-->
+		<item name="SEQUENCE_IMP_TYPE" value="2" />
+		<!--
+			[使用分页的数据库标记，分页实现会根据此标记自动匹配相应数据库的实现。]
+			1-oracle;2-sqlserver;3-mysql;4-sybase;5-db2;6-PostgreSql;7-InterBase(Firebird)
+		-->
+		<item name="PAGINATION_DBMS_FLAG" value="3" />
+		<!--
+			系统数据源定义 *必须拥有一个[SYSDATASOURCE_DEFAULT]默认数据源
+			*对于使用J2EE容器数据源（DATASOURCE_USE_FLAG=1）的情况，value应为此数据源的JNDI名称；
+			*对于使用本框架自带数据源（DATASOURCE_USE_FLAG=2）的情况，value随便定义（此时value值没有意义）
+			*多个数据源的情况，直接定义多项就可以了，命名应该符合[SYSDATASOURCE_XXXX]的形式。
+		-->
+		<item name="SYSDATASOURCE_DEFAULT" value="sys_db_default" />
+		<!--
+      添加别的数据源
+    -->
+		<item name="SYSDATASOURCE_XXX" value="xxxx1" />
+	</AtWork>
+	<DataSources>
+		<SYSDATASOURCE_OPMS>
+			<item name="pool-type" value="1" />
+			<item name="pool-imp"
+				value="com.beetle.framework.persistence.access.datasource.DriverPool" />
+			<item name="pool-minsize" value="10" />
+			<item name="pool-maxsize" value="50" />
+			<item name="test-sql" value="select CURRENT_DATE" />
+			<item name="connection-url" value="jdbc:mysql://localhost:3306/shock?characterEncoding=utf8" />
+			<item name="driver-class" value="com.mysql.jdbc.Driver" />
+			<item name="autoReconnect">true</item>
+			<item name="user-name" value="root" />
+			<item name="password" value="xude123xude.." />
+		</SYSDATASOURCE_OPMS>
+	</DataSources>
+</Config>
