@@ -38,7 +38,7 @@
 			<item name="driver-class" value="com.mysql.jdbc.Driver" />
 			<item name="autoReconnect">true</item>
 			<item name="user-name" value="root" />
-			<item name="password" value="xude123xude.." />
+			<item name="password" value="xude123xude.,” />
 		</SYSDATASOURCE_OPMS>
 	</DataSources>
 </Config>
